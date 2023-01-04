@@ -129,165 +129,192 @@ void reset1() {
   int i = 0;
   circle.setPosition(770, 100);
 
-  i++;
 
-  if (i<100) {
-    circle.setStatic(true);
-  } else {
-    circle.setStatic(false);
+
+  while (i<100) {
+    if ( i < 50) {
+      circle.setStatic(true);
+    } else if (i >=20) {
+      circle.setStatic(false);
+    }
+     i++;
+  }
+i = 0;
+    circle.adjustVelocity(0, 0.5);
   }
 
 
-  circle.adjustVelocity(0, 0.5);
-}
-
-void reset2() {
-  circle.setPosition(250, 100);
-  circle.setVelocity(0, 10);
-}
+  void reset2() {
+    int i = 0;
+    circle.setPosition(250, 100);
+   // circle.setVelocity(0, 10);
 
 
-void handlePlayerInput() {
-  float left_vx = box1.getVelocityX();
-  float left_vy = box1.getVelocityY();
+ while (i<100) {
+    if ( i < 50) {
+      circle.setStatic(true);
+    } else if (i >=20) {
+      circle.setStatic(false);
+    }
+     i++;
+  }
+i = 0;
+    circle.adjustVelocity(0, 0.5);
+  }
 
-  if (wkey) box1.setVelocity(left_vx, -600);
-  if (dkey) box1.setVelocity(350, left_vy);
-  if (akey) box1.setVelocity(-350, left_vy);
-  if (wkey && dkey) box1.setVelocity(350, -600);
-  if (wkey && akey) box1.setVelocity(-350, -600);
-  float right_vx = box2.getVelocityX();
-  float right_vy = box2.getVelocityY();
+//    if (i<30) {
+//      circle.setStatic(true);
+//    } else {
+//      circle.setStatic(false);
+//    }
 
-  if (upkey) box2.setVelocity(right_vx, -600);
-  if (rightkey) box2.setVelocity(350, right_vy);
-  if (leftkey) box2.setVelocity(-350, right_vy);
-  if (upkey && rightkey) box2.setVelocity(350, -600);
-  if (upkey && leftkey) box2.setVelocity(-350, -600);
-  ground1.setGrabbable(false);
-  ground2.setGrabbable(false);
-}
+//    i++;
+//    circle.adjustVelocity(0, 0.5);
+  //}
 
 
 
-void makeLeft() {
-  box1 = new FBox(150, 150);
-  box1.setPosition(250, 720);
-  //set visuals
-  box1.setStrokeWeight(0);
-  box1.setFillColor(red);
-  //set physical properties
-  box1.setDensity(20);
-  box1.setFriction(1);
-  box1.setRestitution(0.25);
-  world.add(box1);
-}
+  void handlePlayerInput() {
+    float left_vx = box1.getVelocityX();
+    float left_vy = box1.getVelocityY();
 
-void makeRight() {
-  box2 = new FBox(150, 150);
-  box2.setPosition(770, 720);
-  //set visuals
-  box2.setStrokeWeight(0);
-  box2.setFillColor(green);
-  //set physical properties
-  box2.setDensity(20);
-  box2.setFriction(1);
-  box2.setRestitution(0.25);
-  world.add(box2);
-}
+    if (wkey) box1.setVelocity(left_vx, -600);
+    if (dkey) box1.setVelocity(350, left_vy);
+    if (akey) box1.setVelocity(-350, left_vy);
+    if (wkey && dkey) box1.setVelocity(350, -600);
+    if (wkey && akey) box1.setVelocity(-350, -600);
+    float right_vx = box2.getVelocityX();
+    float right_vy = box2.getVelocityY();
+
+    if (upkey) box2.setVelocity(right_vx, -600);
+    if (rightkey) box2.setVelocity(350, right_vy);
+    if (leftkey) box2.setVelocity(-350, right_vy);
+    if (upkey && rightkey) box2.setVelocity(350, -600);
+    if (upkey && leftkey) box2.setVelocity(-350, -600);
+    ground1.setGrabbable(false);
+    ground2.setGrabbable(false);
+  }
 
 
 
+  void makeLeft() {
+    box1 = new FBox(150, 150);
+    box1.setPosition(250, 720);
+    //set visuals
+    box1.setStrokeWeight(0);
+    box1.setFillColor(red);
+    //set physical properties
+    box1.setDensity(20);
+    box1.setFriction(1);
+    box1.setRestitution(0.25);
+    world.add(box1);
+  }
 
-void makeNet() {
-  FBox box = new FBox(40, 300);
-  box.setPosition(500, 695);
-  //set visuals
-  box.setStatic(true);
-  box.setStrokeWeight(0);
-  box.setFillColor(#000000);
-//set physical properties
-  box.setDensity(0.5);
-  box.setFriction(1);
-  box.setRestitution(0.25);
-  world.add(box);
-}
+  void makeRight() {
+    box2 = new FBox(150, 150);
+    box2.setPosition(770, 720);
+    //set visuals
+    box2.setStrokeWeight(0);
+    box2.setFillColor(green);
+    //set physical properties
+    box2.setDensity(20);
+    box2.setFriction(1);
+    box2.setRestitution(0.25);
+    world.add(box2);
+  }
 
 
 
 
-
-
-void makeBox1() {
-  ground1 = new FBox(494, 150);
-  ground1.setPosition(252.5, 920);
-
-  //set visuals
-  ground1.setStatic(true);
-  ground1.setStrokeWeight(0);
-  ground1.setFillColor(red);
-
-  //set physical properties
-  ground1.setDensity(8);
-  ground1.setFriction(0.2);
-  ground1.setRestitution(0.25);
-  world.add(ground1);
-}
-
-void makeBox2() {
-  ground2 = new FBox(495, 150);
-  ground2.setPosition(747, 920);
-
-  //set visuals
-  ground2.setStatic(true);
-  ground2.setStrokeWeight(0);
-  ground2.setFillColor(blue);
-
-  //set physical properties
-  ground2.setDensity(8);
-  ground2.setFriction(0.2);
-  ground2.setRestitution(0.25);
-  world.add(ground2);
-}
+  void makeNet() {
+    FBox box = new FBox(40, 300);
+    box.setPosition(500, 695);
+    //set visuals
+    box.setStatic(true);
+    box.setStrokeWeight(0);
+    box.setFillColor(#000000);
+    //set physical properties
+    box.setDensity(0.5);
+    box.setFriction(1);
+    box.setRestitution(0.25);
+    world.add(box);
+  }
 
 
 
 
 
-void makeBall() {
-  circle = new FCircle(50);
-  circle.setPosition(250, 500);
 
-  //set visuals
-  circle.setStroke(0);
-  circle.setStrokeWeight(3);
-  circle.setFillColor(#FFFFFF);
+  void makeBox1() {
+    ground1 = new FBox(494, 150);
+    ground1.setPosition(252.5, 920);
 
-  //set physical properties
-  circle.setDensity(2);
-  circle.setFriction(1);
-  circle.setRestitution(0.7);
+    //set visuals
+    ground1.setStatic(true);
+    ground1.setStrokeWeight(0);
+    ground1.setFillColor(red);
 
-  //add to world
-  world.add(circle);
-}
+    //set physical properties
+    ground1.setDensity(8);
+    ground1.setFriction(0.2);
+    ground1.setRestitution(0.25);
+    world.add(ground1);
+  }
+
+  void makeBox2() {
+    ground2 = new FBox(495, 150);
+    ground2.setPosition(747, 920);
+
+    //set visuals
+    ground2.setStatic(true);
+    ground2.setStrokeWeight(0);
+    ground2.setFillColor(green);
+
+    //set physical properties
+    ground2.setDensity(8);
+    ground2.setFriction(0.2);
+    ground2.setRestitution(0.25);
+    world.add(ground2);
+  }
 
 
 
-void makeBlob() {
-  FBlob blob = new FBlob();
 
-  //set visuals
-  blob.setAsCircle(random(width), -5, 50);
-  blob.setStroke(0);
-  blob.setStrokeWeight(2);
-  blob.setFillColor(yellow);
 
-  //set physical properties
-  blob.setDensity(0.2);
-  blob.setFriction(1);
-  blob.setRestitution(0.25);
+  void makeBall() {
+    circle = new FCircle(50);
+    circle.setPosition(250, 500);
 
-  //add to the world
-  world.add(blob);
-}
+    //set visuals
+    circle.setStroke(0);
+    circle.setStrokeWeight(3);
+    circle.setFillColor(#FFFFFF);
+
+    //set physical properties
+    circle.setDensity(2);
+    circle.setFriction(1);
+    circle.setRestitution(0.7);
+
+    //add to world
+    world.add(circle);
+  }
+
+
+
+  void makeBlob() {
+    FBlob blob = new FBlob();
+
+    //set visuals
+    blob.setAsCircle(random(width), -5, 50);
+    blob.setStroke(0);
+    blob.setStrokeWeight(2);
+    blob.setFillColor(yellow);
+
+    //set physical properties
+    blob.setDensity(0.2);
+    blob.setFriction(1);
+    blob.setRestitution(0.25);
+
+    //add to the world
+    world.add(blob);
+  }
