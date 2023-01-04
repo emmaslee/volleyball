@@ -115,10 +115,10 @@ void draw() {
   world.draw();  //ask box2D to convert this world to processing screen coordinates and draw
 
   textSize(65);
-  fill(red);
+  fill(0);
   text(leftScore, 240, 260);
 
-  fill(green);
+  fill(0);
   text(rightScore, 750, 260);
 }
 
