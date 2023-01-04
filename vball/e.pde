@@ -25,14 +25,9 @@ FWorld world;
 
 void setup() {
 
-
-
   //make window
   size(1000, 1000);
 
-
-
-  //load resources
 
 
   //initialize world
@@ -105,7 +100,6 @@ void draw() {
   background(#FFFFFF);
   println("x: " + mouseX + " y: " + mouseY);
 
-
   if (hitGround(ground1)) {
     rightScore++;
     reset1();
@@ -147,7 +141,6 @@ void reset1() {
   circle.adjustVelocity(0, 0.5);
 }
 
-
 void reset2() {
   circle.setPosition(250, 100);
   circle.setVelocity(0, 10);
@@ -157,8 +150,6 @@ void reset2() {
 void handlePlayerInput() {
   float left_vx = box1.getVelocityX();
   float left_vy = box1.getVelocityY();
-
-
 
   if (wkey) box1.setVelocity(left_vx, -600);
   if (dkey) box1.setVelocity(350, left_vy);
@@ -182,12 +173,9 @@ void handlePlayerInput() {
 void makeLeft() {
   box1 = new FBox(150, 150);
   box1.setPosition(250, 720);
-
   //set visuals
-
   box1.setStrokeWeight(0);
   box1.setFillColor(red);
-
   //set physical properties
   box1.setDensity(20);
   box1.setFriction(1);
@@ -198,12 +186,9 @@ void makeLeft() {
 void makeRight() {
   box2 = new FBox(150, 150);
   box2.setPosition(770, 720);
-
   //set visuals
-
   box2.setStrokeWeight(0);
   box2.setFillColor(green);
-
   //set physical properties
   box2.setDensity(20);
   box2.setFriction(1);
@@ -215,16 +200,13 @@ void makeRight() {
 
 
 void makeNet() {
-
   FBox box = new FBox(40, 300);
   box.setPosition(500, 695);
-
   //set visuals
   box.setStatic(true);
   box.setStrokeWeight(0);
   box.setFillColor(#000000);
-
-  //set physical properties
+//set physical properties
   box.setDensity(0.5);
   box.setFriction(1);
   box.setRestitution(0.25);
